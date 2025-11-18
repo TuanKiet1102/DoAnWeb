@@ -1,124 +1,249 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Studio Room</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebPhong — Hệ thống cho thuê phòng trọ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./CSS/index.css">
 </head>
 <body>
 
-  <div class="phan-dau">
-    <div class="khung">
-    <div class="logo-trang">
-    <img src="./IMG/logo.jpg" alt="Logo WebPhong">
-    <span>WebPhong</span>
-    </div>
-      <div class="thanh-menu">
-        <a href="#">Trang chủ</a>
-        <a href="#">Danh sách phòng</a>
-        <a href="#">Tính năng</a>
-        <a href="#">Liên hệ</a>
-        <button class="nut-dang-nhap">Đăng nhập</button>
-        <button class="nut-dang-ky">Đăng ký</button>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-wrapper">
+      <div class="logo-section">
+        <img src="./IMG/logo.jpg" alt="Logo WebPhong" class="logo-img">
+        <h1 class="logo-text">WebPhong</h1>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#home">Trang chủ</a>
+        <a href="#search-section">Tìm phòng</a>
+        <a href="#featured">Phòng nổi bật</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <button class="btn btn-secondary" onclick="location.href='./DangNhap.html'">Đăng nhập</button>
+        <button class="btn btn-primary"onclick="location.href='./DangKy.html'">Đăng ký</button>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="gioi-thieu">
-    <h2>Chào mừng bạn đến với WebPhong</h2>
-    <p>Trang web tập làm để tìm phòng trọ dễ dàng hơn.</p>
-    <a href="#" class="nut-chinh">Bắt đầu ngay</a>
-  </div>
-
-  <div class="o-tim-kiem">
-    <form class="form-tim">
-      <input type="text" placeholder="Nhập địa điểm...">
-      <input type="text" placeholder="Giá tối đa...">
-      <button class="nut-tim">Tìm phòng</button>
-    </form>
-  </div>
-
-  <div class="tinh-nang">
-    <h3>Tính năng cơ bản</h3>
-    <div class="danh-sach-tinh-nang">
-      <div class="tinh-nang-item">
-        <h4>Dễ dùng</h4>
-        <p>Giao diện đơn giản, dễ hiểu cho sinh viên.</p>
-      </div>
-      <div class="tinh-nang-item">
-        <h4>Nhanh chóng</h4>
-        <p>Tìm phòng chỉ vài bước cơ bản.</p>
-      </div>
-      <div class="tinh-nang-item">
-        <h4>Miễn phí</h4>
-        <p>Không tốn tiền, chỉ là web tập làm.</p>
-      </div>
+  <!--Banner-->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Tìm phòng trọ nhanh chóng & dễ dàng</h2>
+      <p>Kết nối bạn với hàng ngàn phòng trọ chất lượng trên toàn thành phố</p>
+      <button class="btn btn-primary btn-large" onclick="scrollTo('search-section')">Bắt đầu tìm kiếm</button>
     </div>
-  </div>
+  </section>
 
-  <div class="danh-sach-phong">
-    <h3>Danh sách phòng trọ</h3>
-    <div class="luoi-phong">
-      <div class="the-phong">
-        <div class="hinh-phong">
-          <img src="https://via.placeholder.com/300x200" alt="Phòng trọ">
+  <!-- Tìm kiếm-->
+  <section id="search-section" class="search-section">
+    <div class="container">
+      <h3>Tìm phòng trọ của bạn</h3>
+      
+      <form class="search-form" action="search.php" method="GET">
+        <div class="form-group">
+          <label for="location">Địa điểm:</label>
+          <input type="text" id="location" name="location" placeholder="Nhập quận, huyện..." required>
         </div>
-        <h4>Phòng trọ gần trường</h4>
-        <div class="gia-phong">2.000.000đ/tháng</div>
-        <div class="thong-tin-phong">Diện tích: 20m²</div>
-        <div class="mo-ta-phong">Phòng sạch sẽ, có wifi miễn phí.</div>
-        <div class="nut-phong">
-          <button class="nut-xem">Xem chi tiết</button>
-          <button class="nut-lien-he">Liên hệ</button>
+
+        <div class="form-group">
+          <label for="price-min">Giá từ:</label>
+          <input type="number" id="price-min" name="price_min" placeholder="VNĐ" min="0">
         </div>
-      </div>
-    </div>
-    <div class="xem-them">
-      <button class="nut-xem">Xem thêm phòng</button>
-    </div>
-  </div>
 
-  <div class="cach-hoat-dong">
-    <h3>Cách hoạt động (cho vui)</h3>
-    <div class="buoc">
-      <div class="buoc-item">
-        <div class="so-buoc">1</div>
-        <h4>Tìm kiếm</h4>
-        <p>Nhập địa điểm và giá mong muốn.</p>
-      </div>
-      <div class="buoc-item">
-        <div class="so-buoc">2</div>
-        <h4>Xem phòng</h4>
-        <p>Chọn phòng phù hợp với nhu cầu.</p>
-      </div>
-      <div class="buoc-item">
-        <div class="so-buoc">3</div>
-        <h4>Liên hệ</h4>
-        <p>Nhấn nút liên hệ để gọi chủ phòng.</p>
-      </div>
-    </div>
-  </div>
+        <div class="form-group">
+          <label for="price-max">Giá đến:</label>
+          <input type="number" id="price-max" name="price_max" placeholder="VNĐ" min="0">
+        </div>
 
-  <div class="lien-he">
-    <h3>Liên hệ với mình</h3>
-    <div class="noi-dung-lien-he">
-      <div class="thong-tin-lien-he">
-        <p>Email: sinhvienweb@example.com</p>
-        <p>Điện thoại: 0123 456 789</p>
-      </div>
-      <form class="form-lien-he">
-        <input type="text" placeholder="Tên của bạn">
-        <input type="email" placeholder="Email của bạn">
-        <textarea placeholder="Nội dung liên hệ"></textarea>
-        <button class="nut-lien-he">Gửi</button>
+        <div class="form-group">
+          <label for="area">Diện tích:</label>
+          <select id="area" name="area">
+            <option value="">-- Tất cả --</option>
+            <option value="20">Dưới 20 m²</option>
+            <option value="50">20 - 50 m²</option>
+            <option value="100">50 - 100 m²</option>
+            <option value="1000">Trên 100 m²</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
       </form>
     </div>
-  </div>
+  </section>
 
-  <div class="chan-trang">
-    <p>Studio Room</p>
-    <p>Đây chỉ là demo cho vui thôi</p>
-  </div>
+  <!-- Nổi bật -->
+  <section id="featured" class="featured-rooms">
+    <div class="container">
+      <h3>Phòng nổi bật</h3>
+      <div class="rooms-grid">
+        
+        <!-- P1 -->
+        <div class="room-card">
+          <div class="room-image">
+            <img src="https://via.placeholder.com/400x300?text=Phong+Tro+1" alt="Phòng 1">
+            <span class="status-badge">Còn trống</span>
+            <button class="btn-favorite" onclick="toggleFavorite(this)" title="Lưu yêu thích">♡</button>
+          </div>
+          <div class="room-info">
+            <h4>Phòng trọ gần Trường ĐH Công Nghệ</h4>
+            <div class="room-meta">
+              <span>📍 Quận 5, TP.HCM</span>
+              <span>📐 25 m²</span>
+            </div>
+            <p class="room-description">Phòng sạch sẽ, có gác, Wifi miễn phí, gần trường, gần siêu thị.</p>
+            <div class="room-amenities">
+              <span class="amenity">✓ Wifi</span>
+              <span class="amenity">✓ Điều hòa</span>
+              <span class="amenity">✓ Ban công</span>
+            </div>
+            <div class="room-footer">
+              <p class="room-price">2.500.000 <span>đ/tháng</span></p>
+              <div class="room-actions">
+                <button class="btn btn-secondary" onclick="viewDetail(1)">Xem chi tiết</button>
+                <button class="btn btn-primary" onclick="contact(1)">Liên hệ</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- P2 -->
+        <div class="room-card">
+          <div class="room-image">
+            <img src="https://via.placeholder.com/400x300?text=Phong+Tro+2" alt="Phòng 2">
+            <span class="status-badge hết">Hết</span>
+            <button class="btn-favorite" onclick="toggleFavorite(this)" title="Lưu yêu thích">♡</button>
+          </div>
+          <div class="room-info">
+            <h4>Nhà nguyên căn - Gần Đại học Tôn Đức Thắng</h4>
+            <div class="room-meta">
+              <span>📍 Quận 1, TP.HCM</span>
+              <span>📐 80 m²</span>
+            </div>
+            <p class="room-description">Nhà nguyên căn, 2 phòng ngủ, 1 phòng khách, đầy đủ tiện nghi hiện đại.</p>
+            <div class="room-amenities">
+              <span class="amenity">✓ Wifi</span>
+              <span class="amenity">✓ Máy giặt</span>
+              <span class="amenity">✓ Sân</span>
+            </div>
+            <div class="room-footer">
+              <p class="room-price">6.500.000 <span>đ/tháng</span></p>
+              <div class="room-actions">
+                <button class="btn btn-secondary" onclick="viewDetail(2)">Xem chi tiết</button>
+                <button class="btn btn-primary" onclick="contact(2)">Liên hệ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- P3 -->
+        <div class="room-card">
+          <div class="room-image">
+            <img src="https://via.placeholder.com/400x300?text=Phong+Tro+3" alt="Phòng 3">
+            <span class="status-badge">Còn trống</span>
+            <button class="btn-favorite" onclick="toggleFavorite(this)" title="Lưu yêu thích">♡</button>
+          </div>
+          <div class="room-info">
+            <h4>Căn hộ mini cho sinh viên</h4>
+            <div class="room-meta">
+              <span>📍 Quận 7, TP.HCM</span>
+              <span>📐 30 m²</span>
+            </div>
+            <p class="room-description">Căn hộ mini hiện đại, đủ tiện nghi, an toàn 24/24, gần trường học.</p>
+            <div class="room-amenities">
+              <span class="amenity">✓ Wifi</span>
+              <span class="amenity">✓ Nóng lạnh</span>
+              <span class="amenity">✓ Tủ lạnh</span>
+            </div>
+            <div class="room-footer">
+              <p class="room-price">3.200.000 <span>đ/tháng</span></p>
+              <div class="room-actions">
+                <button class="btn btn-secondary" onclick="viewDetail(3)">Xem chi tiết</button>
+                <button class="btn btn-primary" onclick="contact(3)">Liên hệ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Liên hệ -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h3>Liên hệ</h3>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h4>Thông tin liên hệ</h4>
+          <p><strong>Email:</strong> support@webphong.com</p>
+          <p><strong>Điện thoại:</strong> 0123 456 789</p>
+          <p><strong>Zalo:</strong> 0123 456 789</p>
+          <p><strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP.HCM</p>
+        </div>
+
+        <form class="contact-form" action="contact.php" method="POST">
+          <h4>Gửi tin nhắn cho chúng tôi</h4>
+          <div class="form-group">
+            <input type="text" name="fullname" placeholder="Họ tên đầy đủ" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email của bạn" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Số điện thoại">
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Nội dung tin nhắn" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Gửi</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>Về WebPhong</h5>
+          <p>Hệ thống giới thiệu và cho thuê phòng trọ, nhà ở trực tuyến toàn diện.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Menu</h5>
+          <ul>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#search-section">Tìm phòng</a></li>
+            <li><a href="#featured">Phòng nổi bật</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Hỗ trợ</h5>
+          <ul>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Hướng dẫn sử dụng</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Kết nối</h5>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Zalo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WebPhong. Hệ thống dành cho sinh viên tập làm. Tất cả quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
