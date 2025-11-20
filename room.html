@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chi tiết phòng</title>
+  <link rel="stylesheet" href="./CSS/index.css">
+  <style>
+    .room-detail { max-width:900px; margin:24px auto; display:flex; gap:20px; }
+    .room-detail img { max-width:400px; width:100%; border-radius:6px; }
+    .room-info { flex:1; }
+  </style>
+</head>
+<body>
+  <header class="header"><div class="container header-wrapper"><div class="logo-section"><img src="./IMG/logo.jpg" alt="Logo" class="logo-img"><h1 class="logo-text">WebPhong</h1></div></div></header>
+  <main class="container">
+    <div id="content"></div>
+  </main>
+  <footer class="footer"><div class="container"><p>&copy; 2025 WebPhong</p></div></footer>
+
+  <script>
+    function getQueryParam(name) { return new URLSearchParams(window.location.search).get(name); }
+    function formatPrice(p){ if(!p) return ''; return p.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+    function renderRoom(r){
+      var div = document.getElementById('content');
+      if(!r){ div.innerHTML = '<p>Không tìm thấy phòng.</p>'; return; }
+      div.innerHTML = '<div class="room-detail"><img src="'+(r.image||'https://via.placeholder.com/400x300')+'" alt="'+r.title+'">'+
+        '<div class="room-info"><h2>'+r.title+'</h2><p><strong>Vị trí:</strong> '+r.meta+'</p><p><strong>Diện tích:</strong> '+r.area+'</p><p><strong>Giá:</strong> '+(r.price || (r.price_vnd? formatPrice(r.price_vnd)+' đ/tháng':''))+'</p><p>'+r.desc+'</p><p><a class="btn btn-primary" href="index.html">Quay về</a></p></div></div>';
+    }
+
+    var embeddedRooms = [
+      {"id":101,"title":"Phòng trọ trung tâm Quận 1","district_id":1,"district_name":"Quận 1","meta":"Quận 1, TP.HCM","area":"28 m²","area_m2":28,"price":"3.000.000 đ/tháng","price_vnd":3000000,"amenities":["Wifi"],"desc":"Phòng sạch, gần chợ Bến Thành, tiện đi lại.","image":"https://via.placeholder.com/400x300?text=Q1-1"},
+      {"id":102,"title":"Căn hộ mini Quận 1","district_id":1,"district_name":"Quận 1","meta":"Quận 1, TP.HCM","area":"35 m²","area_m2":35,"price":"4.200.000 đ/tháng","price_vnd":4200000,"amenities":["Wifi","DieuHoa"],"desc":"Full nội thất, an ninh 24/7.","image":"https://via.placeholder.com/400x300?text=Q1-2"},
+      {"id":201,"title":"Phòng trọ gần chợ Quận 2","district_id":2,"district_name":"Quận 2","meta":"Quận 2, TP.HCM","area":"22 m²","area_m2":22,"price":"2.800.000 đ/tháng","price_vnd":2800000,"amenities":["Wifi"],"desc":"Gần cầu Thủ Thiêm, khu yên tĩnh.","image":"https://via.placeholder.com/400x300?text=Q2-1"},
+      {"id":301,"title":"Phòng tiện nghi Quận 3","district_id":3,"district_name":"Quận 3","meta":"Quận 3, TP.HCM","area":"30 m²","area_m2":30,"price":"3.500.000 đ/tháng","price_vnd":3500000,"amenities":["Wifi","MayGiat","DieuHoa"],"desc":"Gần trung tâm, có điều hòa.","image":"https://via.placeholder.com/400x300?text=Q3-1"},
+      {"id":401,"title":"Phòng giá rẻ Quận 4","district_id":4,"district_name":"Quận 4","meta":"Quận 4, TP.HCM","area":"18 m²","area_m2":18,"price":"1.800.000 đ/tháng","price_vnd":1800000,"amenities":[],"desc":"Phù hợp sinh viên, gần trường.","image":"https://via.placeholder.com/400x300?text=Q4-1"},
+      {"id":501,"title":"Phòng trọ Quận 5 gần ĐH","district_id":5,"district_name":"Quận 5","meta":"Quận 5, TP.HCM","area":"25 m²","area_m2":25,"price":"2.500.000 đ/tháng","price_vnd":2500000,"amenities":["Wifi"],"desc":"Gần trường, wifi miễn phí.","image":"https://via.placeholder.com/400x300?text=Q5-1"},
+      {"id":601,"title":"Nhà trọ Quận 6","district_id":6,"district_name":"Quận 6","meta":"Quận 6, TP.HCM","area":"27 m²","area_m2":27,"price":"2.200.000 đ/tháng","price_vnd":2200000,"amenities":["MayGiat"],"desc":"Khu dân cư, có chỗ để xe.","image":"https://via.placeholder.com/400x300?text=Q6-1"},
+      {"id":701,"title":"Căn hộ mini Quận 7","district_id":7,"district_name":"Quận 7","meta":"Quận 7, TP.HCM","area":"30 m²","area_m2":30,"price":"3.200.000 đ/tháng","price_vnd":3200000,"amenities":["Wifi","DieuHoa"],"desc":"An ninh, gần trung tâm thương mại.","image":"https://via.placeholder.com/400x300?text=Q7-1"},
+      {"id":801,"title":"Phòng trọ Quận 8","district_id":8,"district_name":"Quận 8","meta":"Quận 8, TP.HCM","area":"20 m²","area_m2":20,"price":"1.900.000 đ/tháng","price_vnd":1900000,"amenities":["Wifi"],"desc":"Tiện lợi, gần chợ.","image":"https://via.placeholder.com/400x300?text=Q8-1"},
+      {"id":901,"title":"Phòng Quận 9 mới","district_id":9,"district_name":"Quận 9","meta":"Quận 9, TP.HCM","area":"26 m²","area_m2":26,"price":"2.700.000 đ/tháng","price_vnd":2700000,"amenities":["DieuHoa"],"desc":"Gần khu công nghệ cao, yên tĩnh.","image":"https://via.placeholder.com/400x300?text=Q9-1"},
+      {"id":1001,"title":"Phòng Quận 10 tiện nghi","district_id":10,"district_name":"Quận 10","meta":"Quận 10, TP.HCM","area":"29 m²","area_m2":29,"price":"3.100.000 đ/tháng","price_vnd":3100000,"amenities":["MayGiat","Wifi"],"desc":"Gần bệnh viện và chợ lớn.","image":"https://via.placeholder.com/400x300?text=Q10-1"},
+      {"id":1101,"title":"Phòng Quận 11 giá tốt","district_id":11,"district_name":"Quận 11","meta":"Quận 11, TP.HCM","area":"24 m²","area_m2":24,"price":"2.000.000 đ/tháng","price_vnd":2000000,"amenities":[],"desc":"Gần trường học và tuyến xe bus.","image":"https://via.placeholder.com/400x300?text=Q11-1"},
+      {"id":1201,"title":"Phòng Quận 12 cho sinh viên","district_id":12,"district_name":"Quận 12","meta":"Quận 12, TP.HCM","area":"21 m²","area_m2":21,"price":"1.700.000 đ/tháng","price_vnd":1700000,"amenities":[],"desc":"Giá rẻ, phù hợp sinh viên.","image":"https://via.placeholder.com/400x300?text=Q12-1"}
+    ];
+
+    (function(){
+      var id = getQueryParam('id');
+      if(!id) { document.getElementById('content').innerHTML = '<p>Không tìm thấy phòng.</p>'; return; }
+      fetch('rooms.json').then(function(r){ if(!r.ok) throw new Error('err'); return r.json(); }).then(function(data){
+        var item = data.find(function(x){ return x.id == id; });
+        renderRoom(item);
+      }).catch(function(){
+        // fallback: try embeddedRooms
+        var item = embeddedRooms.find(function(x){ return x.id == id; });
+        if (item) renderRoom(item);
+        else document.getElementById('content').innerHTML = '<p>Không thể tải dữ liệu (hãy chạy trang qua server hoặc thử lại).</p>';
+      });
+    })();
+  </script>
+</body>
+</html>
