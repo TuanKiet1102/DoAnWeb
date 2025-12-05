@@ -1,0 +1,4 @@
+table{border-collapse:collapse}
+td,th{border:1px solid #ddd;padding:8px}
+.ok{background:#ecfdf5;color:#065f46}
+.bad{background:#fee2e2;color:#7f1d1d}

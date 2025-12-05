@@ -1,0 +1,17 @@
+/* Styles for room detail page */
+.room-detail {
+  max-width:900px;
+  margin:24px auto;
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+.room-detail img { max-width:400px; width:100%; border-radius:6px; object-fit:cover; background:#e5e7eb; }
+.room-info { flex:1; }
+.status-badge { display:inline-block; padding:2px 10px; border-radius:999px; font-size:13px; margin-left:4px; }
+.status-available { background:#dcfce7; color:#15803d; }
+.status-unavailable { background:#fee2e2; color:#b91c1c; }
+.main-min { min-height:60vh; }
+.img-column { max-width:420px; }
+.thumbs-row { display:flex; gap:8px; margin-top:8px; }
+.small-thumb { width:80px; height:60px; object-fit:cover; cursor:pointer; border-radius:6px; }

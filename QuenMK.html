@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quên mật khẩu — WebPhong</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./CSS/index.css">
+  <link rel="stylesheet" href="./CSS/TrangChu.css">
   <link rel="stylesheet" href="./CSS/NhapVaTao.css">
 </head>
 <body>
 
-  <!-- Header-->
   <header class="header">
     <div class="container header-wrapper">
       <div class="logo-section">
@@ -19,39 +18,38 @@
       </div>
 
       <nav class="nav-menu">
-        <a href="index.html">Trang chủ</a>
-        <a href="index.html#search-section">Tìm phòng</a>
-        <a href="index.html#featured">Phòng nổi bật</a>
-        <a href="index.html#contact">Liên hệ</a>
+        <a href="TrangChu.php">Trang chủ</a>
+        <a href="TrangChu.php">Tìm phòng</a>
+        <a href="TrangChu.php">Phòng nổi bật</a>
+        <a href="TrangChu.php#contact">Liên hệ</a>
       </nav>
 
       <div class="auth-buttons">
-        <button class="btn btn-secondary" onclick="location.href='./DangNhap.html'">Đăng nhập</button>
-        <button class="btn btn-primary" onclick="location.href='./DangKy.html'">Đăng ký</button>
+        <button class="btn btn-secondary" onclick="location.href='./DangNhap.php'">Đăng nhập</button>
+        <button class="btn btn-primary" onclick="location.href='./DangKy.php'">Đăng ký</button>
       </div>
     </div>
   </header>
 
-  <!-- Main-->
   <main class="auth-container">
     <div class="auth-card">
       <h2>Quên mật khẩu</h2>
       <p class="auth-subtitle">Nhập email để nhận hướng dẫn đặt lại mật khẩu</p>
 
-      <form class="auth-form" action="forgot_password.php" method="POST">
+      <form id="fpForm" class="auth-form" action="" method="POST">
         <div class="form-group">
           <label for="fp-email">Email</label>
           <input type="email" id="fp-email" name="email" placeholder="Nhập email đã đăng ký" required>
-          <small class="help-text">Chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu vào email này.</small>
+          <small class="help-text">Chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu vào email này (demo).</small>
         </div>
 
         <button type="submit" class="btn btn-primary btn-large btn-block">Gửi hướng dẫn</button>
       </form>
 
       <div class="auth-links">
-        <a href="DangNhap.html">Quay lại đăng nhập</a>
+        <a href="DangNhap.php">Quay lại đăng nhập</a>
         <span class="divider">|</span>
-        <a href="DangKy.html">Đăng ký tài khoản</a>
+        <a href="DangKy.php">Đăng ký tài khoản</a>
       </div>
 
     </div>
@@ -68,9 +66,9 @@
         <div class="footer-col">
           <h5>Menu</h5>
           <ul>
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="index.html#search-section">Tìm phòng</a></li>
-            <li><a href="index.html#featured">Phòng nổi bật</a></li>
+            <li><a href="TrangChu.php">Trang chủ</a></li>
+            <li><a href="TrangChu.php#search-section">Tìm phòng</a></li>
+            <li><a href="TrangChu.php#featured">Phòng nổi bật</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -95,6 +93,22 @@
       </div>
     </div>
   </footer>
+
+  <!-- Script demo gửi email -->
+  <script>
+    const fpForm = document.getElementById('fpForm');
+
+    fpForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('fp-email').value.trim();
+      if (!email) {
+        alert('Vui lòng nhập email.');
+        return;
+      }
+      alert('Đã gửi hướng dẫn đặt lại mật khẩu tới ' + email + ' (demo).');
+      window.location.href = 'DangNhap.php';
+    });
+  </script>
 
 </body>
 </html>
